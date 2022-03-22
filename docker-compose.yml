@@ -10,6 +10,7 @@ services:
     networks:
       - net
     volumes:
+      - ./conf.d:/etc/rabbitmq/conf.d/:ro
       - data:/var/lib/rabbitmq/
       - log:/var/log/rabbitmq/
     environment:
