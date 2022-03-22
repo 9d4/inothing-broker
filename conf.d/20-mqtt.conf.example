@@ -1,0 +1,25 @@
+mqtt.listeners.tcp.default = 1883
+## Default MQTT with TLS port is 8883
+# mqtt.listeners.ssl.default = 8883
+
+# anonymous connections, if allowed, will use the default
+# credentials specified here
+mqtt.allow_anonymous  = true
+mqtt.default_user     = guest
+mqtt.default_pass     = guest
+
+mqtt.vhost            = /inothing
+mqtt.exchange         = amq.topic
+# 24 hours by default
+mqtt.subscription_ttl = 86400000
+mqtt.prefetch         = 10
+
+mqtt.tcp_listen_options.backlog = 4096
+mqtt.tcp_listen_options.recbuf  = 131072
+mqtt.tcp_listen_options.sndbuf  = 131072
+
+mqtt.tcp_listen_options.keepalive = true
+mqtt.tcp_listen_options.nodelay   = true
+
+mqtt.tcp_listen_options.exit_on_close = true
+mqtt.tcp_listen_options.send_timeout  = 120
