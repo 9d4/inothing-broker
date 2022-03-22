@@ -1,0 +1,25 @@
+version: '3'
+services:
+  rabbitmq-management:
+    image: rabbitmq:3-management
+    container_name: 'rabbitmq'
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - net
+    volumes:
+      - ./enabled_plugin:/etc/rabbitmq/enabled_plugins
+      - data:/var/lib/rabbitmq/
+      - log:/var/log/rabbitmq/
+    environment:
+      RABBITMQ_DEFAULT_USER: ampas
+      RABBITMQ_DEFAULT_PASS: ampas
+
+networks:
+  net:
+    driver: bridge
+
+volumes:
+  data:
+  log:
