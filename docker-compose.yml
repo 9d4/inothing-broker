@@ -20,6 +20,10 @@ services:
   mongo:
     image: mongo
     restart: always
+    ports:
+      - "27017:27017"
+    networks:
+      - net
     environment:
       MONGO_INITDB_ROOT_USERNAME: "${MONGO_USER}"
       MONGO_INITDB_ROOT_PASSWORD: "${MONGO_PASS}"
@@ -30,6 +34,8 @@ services:
     restart: always
     ports:
       - "4321:4321"
+    networks:
+      - net
     environment:
       MONGO_URL: "mongodb://${MONGO_USER}:${MONGO_PASS}@mongo:27017/"
 
